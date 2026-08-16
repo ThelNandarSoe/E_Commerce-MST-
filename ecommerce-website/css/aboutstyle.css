@@ -1,0 +1,187 @@
+/* ================= ABOUT PAGE ================= */
+
+.about-hero {
+    padding: 80px 0;
+    background: #faf9ff;
+}
+
+.about-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-hero-text h1 {
+    font-size: 48px;
+    margin: 15px 0;
+}
+
+.about-hero-text h1 span {
+    color: #7c3aed;
+}
+
+.about-hero-text p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.about-image-card {
+    width: 300px;
+    height: 320px;
+    background: linear-gradient(135deg, #c4b5fd, #7c3aed);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image-shape {
+    font-size: 60px;
+    color: white;
+}
+
+
+/* ================= STORY ================= */
+
+.about-story {
+    padding: 60px 0;
+}
+
+.about-story-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.story-image {
+    flex: 1;
+    height: 300px;
+    background: #f3f0ff;
+    border-radius: 15px;
+}
+
+.story-content {
+    flex: 1;
+}
+
+.story-content h2 {
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.story-content p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+/* ================= MISSION ================= */
+
+.mission-section {
+    background: #7c3aed;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.mission-section h2 {
+    margin: 15px 0;
+}
+
+
+/* ================= VALUES ================= */
+
+.values-section {
+    padding: 60px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.value-card {
+    background: #faf9ff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #7c3aed;
+}
+
+
+/* ================= STATS ================= */
+
+.about-stats {
+    padding: 60px 0;
+    background: #f3f0ff;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 28px;
+    color: #7c3aed;
+}
+
+.stat-item span {
+    color: #666;
+}
+
+
+/* ================= CTA ================= */
+
+.about-cta {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about-cta h2 {
+    margin: 15px 0;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .about-hero-content,
+    .about-story-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .values-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .values-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
