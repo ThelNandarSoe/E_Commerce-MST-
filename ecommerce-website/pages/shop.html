@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse LuxeMart's full collection — fashion, electronics, beauty, and accessories.">
+  <title>Shop | LuxeMart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="shop-page">
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="../index.html" class="nav__logo" aria-label="LuxeMart Home">
+        <span class="nav__logo-icon" aria-hidden="true">◆</span>
+        LuxeMart
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="shop.html" class="nav__link nav__link--active">Shop</a></li>
+        <li><a href="../index.html#categories" class="nav__link">Categories</a></li>
+        <li><a href="../index.html#about" class="nav__link">About</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="nav__action-btn" id="searchBtn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <button class="nav__action-btn nav__cart-btn" id="cartBtn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="nav__cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+      <div class="search-overlay__inner container">
+        <form class="search-form" role="search" aria-label="Site search">
+          <input type="search" class="search-form__input" placeholder="Search products..." aria-label="Search products">
+          <button type="submit" class="btn btn--primary">Search</button>
+        </form>
+        <button class="search-overlay__close" id="searchClose" aria-label="Close search">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shop-page">
+
+    <!-- Page Header -->
+    <section class="shop-header" aria-labelledby="shop-heading">
+      <div class="container">
+        <span class="section__label">Our Collection</span>
+        <h1 class="shop-header__title" id="shop-heading">Shop</h1>
+        <p class="shop-header__description">
+          Explore our curated selection of premium products across fashion, electronics, beauty, and accessories.
+        </p>
+      </div>
+    </section>
+
+    <!-- Toolbar: filters, search, sort -->
+    <section class="shop-toolbar section--compact" aria-label="Product filters and sorting">
+      <div class="container">
+
+        <nav class="shop-filters" aria-label="Filter by category">
+          <button class="shop-filters__btn shop-filters__btn--active" data-category="all" type="button">All</button>
+          <button class="shop-filters__btn" data-category="fashion" type="button">Fashion</button>
+          <button class="shop-filters__btn" data-category="electronics" type="button">Electronics</button>
+          <button class="shop-filters__btn" data-category="beauty" type="button">Beauty</button>
+          <button class="shop-filters__btn" data-category="accessories" type="button">Accessories</button>
+        </nav>
+
+        <div class="shop-controls">
+          <div class="shop-search">
+            <label for="shopSearch" class="visually-hidden">Search products</label>
+            <svg class="shop-search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input
+              type="search"
+              id="shopSearch"
+              class="shop-search__input"
+              placeholder="Search by product name…"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="shop-sort">
+            <label for="shopSort" class="shop-sort__label">Sort by</label>
+            <select id="shopSort" class="shop-sort__select" aria-label="Sort products">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="shop-results" id="shopResults" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="shop-products section" aria-label="Products">
+      <div class="container">
+        <div class="products__grid" id="productsGrid"></div>
+        <div class="shop-empty" id="shopEmpty" hidden>
+          <div class="shop-empty__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <h2 class="shop-empty__title">No products found</h2>
+          <p class="shop-empty__text">Try adjusting your search or filter to find what you're looking for.</p>
+          <button class="btn btn--outline" id="shopReset" type="button">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/shop.js"></script>
+</body>
+</html>
